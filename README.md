@@ -44,7 +44,7 @@ your Final Choice since 2022.3
   <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
   <!-- Include Pixi. -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/live2d.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   ```
 
 - 以及自定义的 script :
@@ -90,7 +90,7 @@ inject:
     # - <link rel="stylesheet" href="/xxx.css">
     - <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
     - <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
-    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/live2d.js"></script>
+    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   bottom:
     # - <script src="xxxx"></script>
     - <script>addEventListener("DOMContentLoaded",function(){let div=document.createElement("div");div.className="Canvas";div.id="L2dCanvas";document.body.appendChild(div);new Viewer({width:window.innerWidth,height:window.innerHeight,left:"0px",bottom:"0px",basePath:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets/bg/bg_church_jp.png",opacity:1,mobile:false,})});</script>
