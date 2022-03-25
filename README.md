@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-03-21 00:46:05
+ * @LastEditTime: 2022-03-25 11:39:48
  * @FilePath: \live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
@@ -41,9 +41,9 @@ your Final Choice since 2022.3
 
   ```html
   <!-- Live2DCubismCore -->
-  <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2dcubismcore.min.js"></script>
   <!-- Include Pixi. -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/pixi.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   ```
 
@@ -88,8 +88,8 @@ js 代码可以写完参数后 [压缩为一行](https://c.runoob.com/front-end/
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
-    - <script src="https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js"></script>
-    - <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js"></script>
+    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2dcubismcore.min.js"></script>
+    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/pixi.min.js"></script>
     - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   bottom:
     # - <script src="xxxx"></script>
@@ -122,3 +122,6 @@ inject:
 ## 借物表
 
 > 项目基于[AzurLaneL2DViewer](https://github.com/alg-wiki/AzurLaneL2DViewer)修改
+
+> https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js \
+> https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js
