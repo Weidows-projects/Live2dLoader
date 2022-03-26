@@ -1,5 +1,5 @@
 ---
-title: 🤬live2d-moc3-web-集成渲染库
+title: 👉live2d-moc3-web-集成渲染库
 password: ""
 tags:
   - live2d
@@ -25,7 +25,7 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-03-26 12:47:16
+ * @LastEditTime: 2022-03-26 12:51:13
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
@@ -87,7 +87,7 @@ top_img:
 
 js 代码可以写完参数后 [压缩为一行](https://c.runoob.com/front-end/51/),一起添加到下面;
 
-当然也可以魔改框架源码,魔改方法多但是很繁琐
+当然也可以魔改框架源码,此处不再赘述.
 
 ```yaml
 inject:
