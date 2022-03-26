@@ -1,4 +1,35 @@
 // ============================== live2d ============================== //
+class Live2dLoader {
+  constructor(models) {
+    let div = document.createElement("div");
+    div.className = "Canvas";
+    div.id = "L2dCanvas";
+    document.body.appendChild(div);
+
+    // 2022326
+    let today = new Date()
+      .toLocaleString("zu-ZA")
+      .slice(0, 10)
+      .replace(/-/g, "")
+      .replace(/\//g, "");
+    let index = -1;
+
+    document.cookie.split(";").forEach((cookie) => {
+      // test=test
+      c = cookie.split("=");
+      if (c[0] == today.trim) index = c[1];
+    });
+
+    if (index === -1) {
+      index = Math.floor(Math.random() * models.length);
+      document.cookie =
+        `${today}=${index}; expires=` +
+        new Date(Date.now() + 86400e3).toUTCString();
+    }
+    new Viewer(models[index]);
+  }
+}
+
 class Viewer {
   constructor(config) {
     let width = config.width || 800;

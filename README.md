@@ -1,43 +1,45 @@
+---
+title: 🤬live2d-moc3-web-集成渲染库
+password: ""
+tags:
+  - live2d
+  - JavaScript
+katex: false
+comments: true
+aside: true
+date: 2022-03-26 12:46:57
+cover: https://www.helloimg.com/images/2022/03/26/RXQjJq.png
+top_img:
+---
+
+<h2>
+
+- # 👉Live2d-moc3👈
+
+[⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/live2d-moc3/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/live2d-moc3) | [👀 示例页面](https://weidows-projects.github.io/live2d-moc3/) 欢迎提交 pr !
+
+</h2>
+
 <!--
- * @?: *********************************************************************
- * @Author: Weidows
+ * @?: live2d************************************************
+ * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-03-25 11:39:48
- * @FilePath: \live2d-moc3\README.md
+ * @LastEditTime: 2022-03-26 12:47:16
+ * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
 -->
 
-<h1>
-
-- ## 👉Live2d-moc3👈
-
-your Final Choice since 2022.3
-
-</h1>
+- [x] 支持 live2d-moc3 版本的 web 渲染库
+- [x] 支持鼠标点击互动 | 不提供拖动功能
+- [x] 新增支持 [多模型] 异步加载 + 每日恒定随机模型 (每天更换自定义列表内随机模型,当日不再随刷新而替换)
 
 <a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
-## 示例
-
-> [示例页面](https://weidows-projects.github.io/live2d-moc3/) | [示例博客](https://weidows.github.io/)
-
-- 看板
-
-  <img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/project/live2d-moc3/demo1.webp" />
-
-  <img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/project/live2d-moc3/demo3.webp" />
-
-- 网页全屏
-
-  <img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/project/live2d-moc3/demo6.webp" />
-
-  <img src="https://cdn.jsdelivr.net/gh/litstronger/pic@master/project/live2d-moc3/demo4.webp" />
-
 ## 如何添加
 
-- 三个必要的头:
+- 三个必要的头: <sup id='cite_ref-1'>[\[1\]](#cite_note-1)</sup> <sup id='cite_ref-2'>[\[2\]](#cite_note-2)</sup>
 
   ```html
   <!-- Live2DCubismCore -->
@@ -47,31 +49,34 @@ your Final Choice since 2022.3
   <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   ```
 
-- 以及自定义的 script :
+- 以及自定义的 js, 单个/多个模型都可以, 但只显示一个, 想要多个可以多 new 几个
 
-  ```html
-  <script>
-    addEventListener("DOMContentLoaded", function () {
-      let div = document.createElement("div");
-      div.className = "Canvas";
-      div.id = "L2dCanvas";
-      document.body.appendChild(div);
-
-      new Viewer({
-        width: window.innerWidth,
-        height: window.innerHeight,
+  ```js
+  addEventListener("DOMContentLoaded", function () {
+    let models = [
+      {
         left: "0px",
         bottom: "0px",
         basePath:
           "https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",
         role: "bisimai_2",
-        background:
-          "https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets/bg/bg_church_jp.png",
+        background: "",
         opacity: 1,
         mobile: false,
-      });
-    });
-  </script>
+      },
+      {
+        right: "0px",
+        bottom: "0px",
+        basePath:
+          "https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",
+        role: "bisimai_2",
+        background: "",
+        opacity: 1,
+        mobile: false,
+      },
+    ];
+    new Live2dLoader(models);
+  });
   ```
 
 <a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
@@ -93,7 +98,7 @@ inject:
     - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   bottom:
     # - <script src="xxxx"></script>
-    - <script>addEventListener("DOMContentLoaded",function(){let div=document.createElement("div");div.className="Canvas";div.id="L2dCanvas";document.body.appendChild(div);new Viewer({width:window.innerWidth,height:window.innerHeight,left:"0px",bottom:"0px",basePath:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets/bg/bg_church_jp.png",opacity:1,mobile:false,})});</script>
+    - <script>addEventListener("DOMContentLoaded",function(){let models=[{left:"0px",bottom:"0px",basePath:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},{right:"0px",bottom:"0px",basePath:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},];new Live2dLoader(models)});</script>
 ```
 
 <a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
@@ -123,5 +128,6 @@ inject:
 
 > 项目基于[AzurLaneL2DViewer](https://github.com/alg-wiki/AzurLaneL2DViewer)修改
 
-> https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js \
-> https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js
+<a name='cite_note-1' href='#cite_ref-1'>[1]</a>: https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js
+
+<a name='cite_note-2' href='#cite_ref-2'>[2]</a>: https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js
