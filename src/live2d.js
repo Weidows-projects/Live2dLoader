@@ -6,24 +6,18 @@ class Live2dLoader {
     div.id = "L2dCanvas";
     document.body.appendChild(div);
 
-    // 2022326
-    let today = new Date()
-      .toLocaleString("zu-ZA")
-      .slice(0, 10)
-      .replace(/-/g, "")
-      .replace(/\//g, "");
     let index = -1;
 
     document.cookie.split(";").forEach((cookie) => {
       // test=test
-      c = cookie.split("=");
-      if (c[0] == today.trim) index = c[1];
+      let c = cookie.split("=");
+      if (c[0].trim() == "live2d") index = c[1];
     });
 
     if (index === -1) {
       index = Math.floor(Math.random() * models.length);
       document.cookie =
-        `${today}=${index}; expires=` +
+        `live2d=${index}; expires=` +
         new Date(Date.now() + 86400e3).toUTCString();
     }
     new Viewer(models[index]);
