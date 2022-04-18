@@ -16,16 +16,16 @@ top_img:
 
 - # 👉Live2d-moc3👈
 
-[⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/live2d-moc3/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/live2d-moc3) | [👀 示例页面](https://weidows-projects.github.io/live2d-moc3/) 欢迎提交 pr !
-
 </h2>
+
+[⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/live2d-moc3/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/live2d-moc3) | [👀 示例页面](https://weidows-projects.github.io/live2d-moc3/) 欢迎提交 pr !
 
 <!--
  * @?: live2d************************************************
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-03-26 12:51:13
+ * @LastEditTime: 2022-04-19 00:50:46
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
@@ -121,6 +121,29 @@ inject:
   [alg-wiki/AzurLaneL2DViewer](https://github.com/alg-wiki/AzurLaneL2DViewer)
 
   [imuncle/live2d](https://github.com/imuncle/live2d)
+
+<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+
+## Q-A
+
+- 关于报错含有 `reading ‘_ptr’` 的, 是模型不适配问题 (#2)
+
+  ```
+  live2dcubismcore.min.js:1
+  Uncaught TypeError: Cannot read properties of null (reading ‘_ptr’)
+  at new Model (live2dcubismcore.min.js:1:138485)
+  at Function.Model.fromMoc (live2dcubismcore.min.js:1:138707)
+  at l2d.js💯60
+  at t.value (mini-signals.js:93:1)
+  at e.t._onComplete (Loader.js:568:1)
+  at Loader.js:608:1
+  at s (async.js:27:1)
+  at e. (interactiveTarget.js:82:5)
+  at Loader.js:590:1
+  at async.js:35:1
+  ```
+
+  检验过并不是配置文件哪里有问题, 单纯是二进制模型 .png/.moc3 问题, 想修复的话要修复模型
 
 <a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
