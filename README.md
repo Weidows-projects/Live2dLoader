@@ -25,7 +25,7 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-05-22 11:17:55
+ * @LastEditTime: 2022-05-23 00:47:01
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
@@ -34,6 +34,7 @@ top_img:
 - [x] 支持 live2d-moc3 版本的 web 渲染库
 - [x] 支持鼠标点击互动 | 不提供拖动功能
 - [x] 新增支持 [多模型] 异步加载 + 每日恒定随机模型 (每天更换自定义列表内随机模型,当日不再随刷新而替换)
+  - [x] 已支持模型号越界判定,自动缩小到给定范围
 
 <a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
@@ -55,6 +56,8 @@ top_img:
   addEventListener("DOMContentLoaded", function () {
     let models = [
       {
+        width: 800,
+        height: 600,
         left: "0px",
         bottom: "0px",
         basePath:
@@ -65,6 +68,8 @@ top_img:
         mobile: false,
       },
       {
+        width: 800,
+        height: 600,
         right: "0px",
         bottom: "0px",
         basePath:
@@ -105,26 +110,22 @@ inject:
 
 ## 可选参数
 
-| 参数                  | Type          | Default | Description                                                                             |
-| --------------------- | ------------- | ------- | --------------------------------------------------------------------------------------- |
-| width                 | 可选[Number]  | 800     | 宽度，单位为 px                                                                         |
-| height                | 可选[Number]  | 600     | 长度，单位为 px                                                                         |
-| top,right,bottom,left | 可选[String]  | ""      | 模型到浏览器各边框的距离。选择两个即可定位，如定位在左下角：left: '0px' , bottom: '0px' |
-| basePath              | 必须[String]  | ""      | live2d 模型资源库的路径                                                                 |
-| role                  | 必须[String]  | ""      | 角色模型对应的文件夹（即 basePath 下的文件夹                                            |
-| background            | 可选[String]  | ""      | 背景图片，可填入图片外链                                                                |
-| opacity               | 可选[Number]  | 1       | 模型透明度，0~1 取值                                                                    |
-| mobile                | 可选[boolean] | true    | 移动端(手机)是否显示                                                                    |
-
-- `basePath` 所使用的模型地址,推荐下面两个仓库,模型非常好看:
-
-  [alg-wiki/AzurLaneL2DViewer](https://github.com/alg-wiki/AzurLaneL2DViewer)
-
-  [imuncle/live2d](https://github.com/imuncle/live2d)
+| 参数                  | Type          | Default | Description                                                                                                                                                                                   |
+| --------------------- | ------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| width                 | 可选[Number]  | 800     | 宽度，单位为 px                                                                                                                                                                               |
+| height                | 可选[Number]  | 600     | 长度，单位为 px                                                                                                                                                                               |
+| top,right,bottom,left | 可选[String]  | ""      | 模型到浏览器各边框的距离。选择两个即可定位，如定位在左下角：left: '0px' , bottom: '0px'                                                                                                       |
+| basePath              | 必须[String]  | ""      | live2d 模型资源库的路径,推荐下面仓库,模型非常好看 </br> [alg-wiki/AzurLaneL2DViewer](https://github.com/alg-wiki/AzurLaneL2DViewer) </br> [imuncle/live2d](https://github.com/imuncle/live2d) |
+| role                  | 必须[String]  | ""      | 角色模型对应的文件夹（即 basePath 下的文件夹                                                                                                                                                  |
+| background            | 可选[String]  | ""      | 背景图片，可填入图片外链                                                                                                                                                                      |
+| opacity               | 可选[Number]  | 1       | 模型透明度，(0,1] 取值                                                                                                                                                                        |
+| mobile                | 可选[boolean] | true    | 移动端(手机)是否显示                                                                                                                                                                          |
 
 <a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
 ## Q-A
+
+### 模型问题报错
 
 - 关于报错含有 `reading ‘_ptr’` 的, 是模型不适配问题 (#2)
 
@@ -144,6 +145,12 @@ inject:
   ```
 
   检验过并不是配置文件哪里有问题, 单纯是二进制模型 .png/.moc3 问题, 想修复的话要修复模型
+
+---
+
+### 怎么刷新
+
+![](https://www.helloimg.com/images/2022/05/23/ZRyZgz.png)
 
 <a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 

@@ -10,8 +10,15 @@ class Live2dLoader {
 
     document.cookie.split(";").forEach((cookie) => {
       // test=test
-      let c = cookie.split("=");
-      if (c[0].trim() == "live2d") index = c[1];
+      let cookieMap = cookie.split("=");
+      // live2d=1
+      // 筛选出 live2d-cookie, 并作越界判断
+      if (
+        cookieMap[0].trim() == "live2d" &&
+        cookieMap[1] >= 0 &&
+        cookieMap[1] < models.length
+      )
+        index = cookieMap[1];
     });
 
     if (index === -1) {
