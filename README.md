@@ -25,7 +25,7 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-04-19 00:50:46
+ * @LastEditTime: 2022-05-22 11:17:55
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
@@ -35,7 +35,7 @@ top_img:
 - [x] 支持鼠标点击互动 | 不提供拖动功能
 - [x] 新增支持 [多模型] 异步加载 + 每日恒定随机模型 (每天更换自定义列表内随机模型,当日不再随刷新而替换)
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
 ## 如何添加
 
@@ -43,10 +43,10 @@ top_img:
 
   ```html
   <!-- Live2DCubismCore -->
-  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2dcubismcore.min.js"></script>
+  <script src="https://fastly.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2dcubismcore.min.js"></script>
   <!-- Include Pixi. -->
-  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/pixi.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
+  <script src="https://fastly.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/pixi.min.js"></script>
+  <script src="https://fastly.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   ```
 
 - 以及自定义的 js, 单个/多个模型都可以, 但只显示一个, 想要多个可以多 new 几个
@@ -58,7 +58,7 @@ top_img:
         left: "0px",
         bottom: "0px",
         basePath:
-          "https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",
+          "https://fastly.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",
         role: "bisimai_2",
         background: "",
         opacity: 1,
@@ -68,7 +68,7 @@ top_img:
         right: "0px",
         bottom: "0px",
         basePath:
-          "https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",
+          "https://fastly.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",
         role: "bisimai_2",
         background: "",
         opacity: 1,
@@ -79,7 +79,7 @@ top_img:
   });
   ```
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
 ## 比如 Hexo
 
@@ -93,15 +93,15 @@ js 代码可以写完参数后 [压缩为一行](https://c.runoob.com/front-end/
 inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
-    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2dcubismcore.min.js"></script>
-    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/pixi.min.js"></script>
-    - <script src="https://cdn.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
+    - <script src="https://fastly.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2dcubismcore.min.js"></script>
+    - <script src="https://fastly.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/pixi.min.js"></script>
+    - <script src="https://fastly.jsdelivr.net/gh/Weidows-projects/live2d-moc3/dist/live2d.min.js"></script>
   bottom:
     # - <script src="xxxx"></script>
-    - <script>addEventListener("DOMContentLoaded",function(){let models=[{left:"0px",bottom:"0px",basePath:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},{right:"0px",bottom:"0px",basePath:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},];new Live2dLoader(models)});</script>
+    - <script>addEventListener("DOMContentLoaded",function(){let models=[{left:"0px",bottom:"0px",basePath:"https://fastly.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},{right:"0px",bottom:"0px",basePath:"https://fastly.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},];new Live2dLoader(models)});</script>
 ```
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
 ## 可选参数
 
@@ -122,7 +122,7 @@ inject:
 
   [imuncle/live2d](https://github.com/imuncle/live2d)
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
 ## Q-A
 
@@ -145,12 +145,12 @@ inject:
 
   检验过并不是配置文件哪里有问题, 单纯是二进制模型 .png/.moc3 问题, 想修复的话要修复模型
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
 ## 借物表
 
 > 项目基于[AzurLaneL2DViewer](https://github.com/alg-wiki/AzurLaneL2DViewer)修改
 
-<a name='cite_note-1' href='#cite_ref-1'>[1]</a>: https://cdn.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js
+<a name='cite_note-1' href='#cite_ref-1'>[1]</a>: https://fastly.jsdelivr.net/gh/litstronger/live2d-moc3@master/js/frame/live2dcubismcore.min.js
 
 <a name='cite_note-2' href='#cite_ref-2'>[2]</a>: https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.1/pixi.min.js
