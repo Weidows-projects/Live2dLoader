@@ -25,16 +25,18 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2022-05-23 00:47:01
+ * @LastEditTime: 2022-06-28 03:50:58
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\README.md
  * @Description:
  * @!: *********************************************************************
 -->
 
 - [x] 支持 live2d-moc3 版本的 web 渲染库
-- [x] 支持鼠标点击互动 | 不提供拖动功能
-- [x] 新增支持 [多模型] 异步加载 + 每日恒定随机模型 (每天更换自定义列表内随机模型,当日不再随刷新而替换)
-  - [x] 已支持模型号越界判定,自动缩小到给定范围
+- [x] 支持鼠标点击互动
+- [ ] 拖动功能待修复
+- [x] 2022.3.26 新增支持 [多模型] 异步加载 + 每日恒定随机模型 (每天更换自定义列表内随机模型,当日不再随刷新而替换)
+- [x] 2022.5.23 已支持模型号越界判定,自动缩小到给定范围
+- [x] 2022.6.28 鼠标穿透/防遮挡 + 支持眼球跟踪 + 模型缩放 API
 
 <a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
@@ -120,6 +122,7 @@ inject:
 | background            | 可选[String]  | ""      | 背景图片，可填入图片外链                                                                                                                                                                      |
 | opacity               | 可选[Number]  | 1       | 模型透明度，(0,1] 取值                                                                                                                                                                        |
 | mobile                | 可选[boolean] | true    | 移动端(手机)是否显示                                                                                                                                                                          |
+| scale                 | 可选[Number]  | 0.06    | 模型缩放比例，(0,1] 取值                                                                                                                                                                      |
 
 <a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 
@@ -151,6 +154,12 @@ inject:
 ### 怎么刷新
 
 ![](https://www.helloimg.com/images/2022/05/23/ZRyZgz.png)
+
+---
+
+### 模型太小问题
+
+对于评论中提到的模型显示太小, 现在可以设置 `scale` 参数来解决了
 
 <a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
 

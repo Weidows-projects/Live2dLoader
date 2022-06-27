@@ -36,13 +36,14 @@ class Viewer {
     let width = config.width || 800;
     let height = config.height || 600;
     let role = config.role;
-    let left = config.left; //|| '0px'
-    let top = config.top; //|| '0px'
-    let right = config.right; //|| '0px'
-    let bottom = config.bottom; //|| '0px'
+    let left = config.left;
+    let top = config.top;
+    let right = config.right;
+    let bottom = config.bottom;
     let bg = config.background;
     let opa = config.opacity;
     let mobile = config.mobile;
+    let scale = config.scale || 0.06;
 
     if (!mobile) {
       if (this.isMobile()) return;
@@ -63,11 +64,12 @@ class Viewer {
       this.canvas[0].style.background = "url(" + bg + ")";
       this.canvas[0].style.backgroundSize = "cover";
     }
-    if (opa) this.canvas[0].style.opacity = opa;
-    if (top) this.canvas[0].style.top = top;
-    if (right) this.canvas[0].style.right = right;
-    if (bottom) this.canvas[0].style.bottom = bottom;
     if (left) this.canvas[0].style.left = left;
+    if (right) this.canvas[0].style.right = right;
+    if (top) this.canvas[0].style.top = top;
+    if (bottom) this.canvas[0].style.bottom = bottom;
+    if (opa) this.canvas[0].style.opacity = opa;
+    this.canvas[0].style.pointerEvents = "none";
 
     this.app.ticker.add((deltaTime) => {
       if (!this.model) {
@@ -90,17 +92,21 @@ class Viewer {
       if (this.model) {
         this.model.position = new PIXI.Point(width * 0.5, height * 0.5);
         this.model.scale = new PIXI.Point(
-          this.model.position.x * 0.06,
-          this.model.position.x * 0.06
+          this.model.position.x * scale,
+          this.model.position.x * scale
         );
         this.model.masks.resize(this.app.view.width, this.app.view.height);
       }
     };
     this.isClick = false;
-    this.app.view.addEventListener("mousedown", (event) => {
+
+    // this.app.view.addEventListener("mousedown", (event) => {
+    document.addEventListener("mousedown", (event) => {
       this.isClick = true;
     });
-    this.app.view.addEventListener("mousemove", (event) => {
+
+    // this.app.view.addEventListener("mousemove", (event) => {
+    document.addEventListener("mousemove", (event) => {
       if (this.isClick) {
         this.isClick = false;
         if (this.model) {
@@ -109,21 +115,28 @@ class Viewer {
       }
 
       if (this.model) {
-        let mouse_x = this.model.position.x - event.offsetX;
-        let mouse_y = this.model.position.y - event.offsetY;
-        this.model.pointerX = -mouse_x / this.app.view.height;
-        this.model.pointerY = -mouse_y / this.app.view.width;
+        let mouse_x =
+          event.clientX - this.canvas[0].offsetLeft - this.model.position.x;
+        let mouse_y =
+          event.clientY - this.canvas[0].offsetTop - this.model.position.y;
+        this.model.pointerX = mouse_x / this.app.view.height;
+        this.model.pointerY = mouse_y / this.app.view.width;
       }
     });
-    this.app.view.addEventListener("mouseup", (event) => {
-      if (!this.model) {
+
+    // 因为上面设置了 canvas 穿透, 无法监听鼠标事件; 此处让 document 通过坐标监听
+    // this.app.view.addEventListener("mouseup", (event) => {
+    document.addEventListener("mouseup", (event) => {
+      let offsetX = event.clientX - this.canvas[0].offsetLeft;
+      let offsetY = event.clientY - this.canvas[0].offsetTop;
+      if (!this.model || offsetX < 0 || offsetY < 0 || offsetX > width || offsetY > height) {
         return;
       }
       this.isClick = true;
       if (this.isClick) {
-        if (this.isHit("TouchHead", event.offsetX, event.offsetY)) {
+        if (this.isHit("TouchHead", offsetX, offsetY)) {
           this.startAnimation("touch_head", "base");
-        } else if (this.isHit("TouchSpecial", event.offsetX, event.offsetY)) {
+        } else if (this.isHit("TouchSpecial", offsetX, offsetY)) {
           this.startAnimation("touch_special", "base");
         } else {
           const bodyMotions = ["touch_body", "main_1", "main_2", "main_3"];
@@ -178,14 +191,12 @@ class Viewer {
     }
     this._animator.updateAndEvaluate(deltaTime);
 
-    if (this.inDrag) {
-      this.addParameterValueById("ParamAngleX", this.pointerX * 30);
-      this.addParameterValueById("ParamAngleY", -this.pointerY * 30);
-      this.addParameterValueById("ParamBodyAngleX", this.pointerX * 10);
-      this.addParameterValueById("ParamBodyAngleY", -this.pointerY * 10);
-      this.addParameterValueById("ParamEyeBallX", this.pointerX);
-      this.addParameterValueById("ParamEyeBallY", -this.pointerY);
-    }
+    this.addParameterValueById("ParamAngleX", this.pointerX * 30);
+    this.addParameterValueById("ParamAngleY", -this.pointerY * 30);
+    this.addParameterValueById("ParamBodyAngleX", this.pointerX * 10);
+    this.addParameterValueById("ParamBodyAngleY", -this.pointerY * 10);
+    this.addParameterValueById("ParamEyeBallX", this.pointerX);
+    this.addParameterValueById("ParamEyeBallY", -this.pointerY);
 
     if (this._physicsRig) {
       this._physicsRig.updateAndEvaluate(deltaTime);
