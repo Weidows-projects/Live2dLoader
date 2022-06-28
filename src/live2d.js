@@ -98,6 +98,7 @@ class Viewer {
         this.model.masks.resize(this.app.view.width, this.app.view.height);
       }
     };
+
     this.isClick = false;
 
     // this.app.view.addEventListener("mousedown", (event) => {
@@ -147,7 +148,7 @@ class Viewer {
       }
 
       this.isClick = false;
-      this.model.inDrag = false;
+      // this.model.inDrag = false;
     });
     console.log("Init finished.");
   }
@@ -191,13 +192,15 @@ class Viewer {
     }
     this._animator.updateAndEvaluate(deltaTime);
 
-    this.addParameterValueById("ParamAngleX", this.pointerX * 30);
-    this.addParameterValueById("ParamAngleY", -this.pointerY * 30);
-    this.addParameterValueById("ParamBodyAngleX", this.pointerX * 10);
-    this.addParameterValueById("ParamBodyAngleY", -this.pointerY * 10);
-    this.addParameterValueById("ParamEyeBallX", this.pointerX);
-    this.addParameterValueById("ParamEyeBallY", -this.pointerY);
-
+    // 初次加载时需要跳过此处, 不然会出现模型赤裸的 bug
+    if (this.inDrag) {
+      this.addParameterValueById("ParamAngleX", this.pointerX * 30);
+      this.addParameterValueById("ParamAngleY", -this.pointerY * 30);
+      this.addParameterValueById("ParamBodyAngleX", this.pointerX * 10);
+      this.addParameterValueById("ParamBodyAngleY", -this.pointerY * 10);
+      this.addParameterValueById("ParamEyeBallX", this.pointerX);
+      this.addParameterValueById("ParamEyeBallY", -this.pointerY);
+    }
     if (this._physicsRig) {
       this._physicsRig.updateAndEvaluate(deltaTime);
     }
