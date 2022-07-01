@@ -38,7 +38,7 @@ top_img:
 - [x] 2022.5.23 已支持模型号越界判定,自动缩小到给定范围
 - [x] 2022.6.28 鼠标穿透/防遮挡 + 支持眼球跟踪 + 模型缩放 API
 
-<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
 
 ## 如何添加
 
@@ -86,7 +86,7 @@ top_img:
   });
   ```
 
-<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
 
 ## 比如 Hexo
 
@@ -108,7 +108,7 @@ inject:
     - <script>addEventListener("DOMContentLoaded",function(){let models=[{left:"0px",bottom:"0px",basePath:"https://fastly.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},{right:"0px",bottom:"0px",basePath:"https://fastly.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets",role:"bisimai_2",background:"",opacity:1,mobile:false,},];new Live2dLoader(models)});</script>
 ```
 
-<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
 
 ## 可选参数
 
@@ -124,7 +124,7 @@ inject:
 | mobile                | 可选[boolean] | true    | 移动端(手机)是否显示                                                                                                                                                                          |
 | scale                 | 可选[Number]  | 0.06    | 模型缩放比例，(0,1] 取值                                                                                                                                                                      |
 
-<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
 
 ## Q-A
 
@@ -161,7 +161,7 @@ inject:
 
 对于评论中提到的模型显示太小, 现在可以设置 `scale` 参数来解决了
 
-<a>![分割线](https://fastly.jsdelivr.net/gh/Weidows/Images/img/divider.png)</a>
+<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
 
 ## 借物表
 
