@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "uglifyjs": "uglifyjs src/live2d.js -o dist/live2d.min.js"
+    "uglifyjs": "uglifyjs src/Live2dLoader.js -o dist/Live2dLoader.min.js"
   },
   "devDependencies": {
     "uglify-js": "^3.15.5"

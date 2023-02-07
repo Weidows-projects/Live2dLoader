@@ -15,9 +15,9 @@
 
 class Live2dLoader {
   constructor(models) {
-    let index = this.getLive2dIndex(models);
-    if (!models[index].mobile && this.isMobile()) return;
-    this.load(models[index]);
+    let config = models[this.getLive2dIndex(models)];
+    if (!config.mobile && this.isMobile()) return;
+    this.load(config);
   }
 
   getLive2dIndex(models) {
@@ -102,7 +102,7 @@ class Live2dLoader {
       canvas.style.width * 0.5,
       canvas.style.height * 0.5
     );
-    this.model.scale.set(config.scale || 0.2);
+    this.model.scale.set(config.scale || 0.1);
     if (config.draggable === true) this.draggable(this.model);
     this.addListener(config, canvas, this.initMotionIndex());
   }
@@ -209,9 +209,6 @@ class Live2dLoader {
       po = this.model.toModelPosition(
         new PIXI.Point(this.model._pointerX, this.model._pointerY)
       );
-    // 这俩不大行...怎么都是 false
-    // console.log(this.model.internalModel.hitTest(po.x, po.y));
-    // console.log(this.model.internalModel.isHit("TouchHead", po.x, po.y));
 
     let b =
       bounds.x < po.x &&
