@@ -3,8 +3,8 @@
  * @Author: Weidows
  * @LastEditors: Weidows
  * @Date: 2023-02-04 20:29:50
- * @LastEditTime: 2023-02-07 17:58:23
- * @FilePath: \Blog-private\source\_posts\Web\JavaScript\live2d-moc3\src\live2d.js
+ * @LastEditTime: 2023-02-07 20:19:20
+ * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\src\Live2dLoader.js
  * @Description: live2d loader
  * @?: *********************************************************************
  */
@@ -84,7 +84,7 @@ class Live2dLoader {
     else canvas.style.bottom = 0;
     if (config.opacity) canvas.style.opacity = config.opacity;
     if (config.background) {
-      canvas.style.background = "url(" + bg + ")";
+      canvas.style.background = "url(" + config.background + ")";
       canvas.style.backgroundSize = "cover";
     }
 
