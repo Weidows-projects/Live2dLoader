@@ -15,6 +15,10 @@
 
 class Live2dLoader {
   constructor(models) {
+    console.log(
+      "%cLive2D using: https://github.com/Weidows-projects/Live2dLoader",
+      "color: #6aff00;background: #0c222e;"
+    );
     let config = models[this.getLive2dIndex(models)];
     if (!config.mobile && this.isMobile()) return;
     this.load(config);
@@ -169,23 +173,22 @@ class Live2dLoader {
           canvas.style.pointerEvents = "auto";
         }
 
-        let po = this.model.toModelPosition(
-            new PIXI.Point(this.model._pointerX, this.model._pointerY)
-          ),
-          hitAreas = this.model.internalModel.hitTest(po.x, po.y);
+        let po = this.model.toModelPosition(new PIXI.Point(offsetX, offsetY)),
+          hitAreas;
 
         if (Object.keys(this.model.internalModel.hitAreas).length == 0) {
-          if (this.isHit("TouchHead", offsetX, offsetY)) {
+          hitAreas = this.hitTest(po.x, po.y);
+          if (hitAreas.includes("TouchHead")) {
             this.model.internalModel.motionManager.startMotion(
               "",
               motionIndex[0]
             );
-          } else if (this.isHit("TouchSpecial", offsetX, offsetY)) {
+          } else if (hitAreas.includes("TouchSpecial")) {
             this.model.internalModel.motionManager.startMotion(
               "",
               motionIndex[1]
             );
-          } else if (this.isHit("TouchBody", offsetX, offsetY)) {
+          } else if (hitAreas.includes("TouchBody")) {
             this.model.internalModel.motionManager.startMotion(
               "",
               motionIndex[2]
@@ -194,6 +197,7 @@ class Live2dLoader {
             this.model.internalModel.motionManager.startRandomMotion("");
           }
         } else {
+          hitAreas = this.model.internalModel.hitTest(po.x, po.y);
           if (hitAreas.includes("head") || hitAreas.includes("Head")) {
             this.model.expression();
             this.model.motion("Tap");
@@ -202,21 +206,25 @@ class Live2dLoader {
             this.model.motion("Tap");
           } else this.model.motion("Tap");
         }
+        console.log("Start motion: ", hitAreas.join(" / "));
       }
     });
   }
 
-  isHit(id, offsetX, offsetY) {
-    let bounds = this.model.internalModel.getDrawableBounds(id),
-      po = this.model.toModelPosition(new PIXI.Point(offsetX, offsetY));
-    console.log(bounds, po);
-
-    let b =
-      bounds.x < po.x &&
-      po.x < bounds.x + bounds.width &&
-      bounds.y < po.y &&
-      po.y < bounds.y + bounds.height;
-    if (b) console.log(id);
-    return b;
+  hitTest(poX, poY) {
+    let hitAreas = [];
+    ["TouchHead", "TouchSpecial", "TouchBody"].forEach((id) => {
+      let bounds = this.model.internalModel.getDrawableBounds(id);
+      let b =
+        bounds.x < poX &&
+        poX < bounds.x + bounds.width &&
+        bounds.y < poY &&
+        poY < bounds.y + bounds.height;
+      if (b) {
+        hitAreas.push(id);
+        // console.log(id);
+      }
+    });
+    return hitAreas;
   }
 }
