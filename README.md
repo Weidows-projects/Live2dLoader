@@ -18,6 +18,8 @@ top_img:
 
 </h2>
 
+![](https://www.helloimg.com/images/2023/02/08/ooFTjM.png)
+
 [⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/Live2dLoader/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/Live2dLoader) | [👀 示例页面](https://weidows-projects.github.io/Live2dLoader/) 欢迎提交 pr !
 
 <!--
@@ -25,7 +27,7 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2023-02-07 20:07:37
+ * @LastEditTime: 2023-02-08 00:23:33
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\README.md
  * @Description:
  * @!: *********************************************************************

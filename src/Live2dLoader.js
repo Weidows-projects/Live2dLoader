@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @LastEditors: Weidows
  * @Date: 2023-02-04 20:29:50
- * @LastEditTime: 2023-02-07 21:31:37
+ * @LastEditTime: 2023-02-08 01:39:18
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\src\Live2dLoader.js
  * @Description: live2d loader
  * @?: *********************************************************************
@@ -206,7 +206,7 @@ class Live2dLoader {
             this.model.motion("Tap");
           } else this.model.motion("Tap");
         }
-        console.log("Start motion: ", hitAreas.join(" / "));
+        console.log("Start motion: ", hitAreas.join(" / ") || "random");
       }
     });
   }
