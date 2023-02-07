@@ -3,7 +3,7 @@
  * @Author: Weidows
  * @LastEditors: Weidows
  * @Date: 2023-02-04 20:29:50
- * @LastEditTime: 2023-02-07 20:19:20
+ * @LastEditTime: 2023-02-07 21:31:37
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\src\Live2dLoader.js
  * @Description: live2d loader
  * @?: *********************************************************************
@@ -144,50 +144,52 @@ class Live2dLoader {
     // this.model.on("hit", (hitAreas) => {});
     // this.model.emit("hit");
 
-    document.addEventListener("mouseup", (event) => {
-      if (config.pierceThrough !== false) {
-        // 鼠标穿透, 先把 canvas 设为可穿透
-        canvas.style.pointerEvents = "none";
-        // 为该元素派发点击事件 https://www.blogwxb.cn/js%E4%B8%AD%E7%94%A8x%EF%BC%8Cy%E5%9D%90%E6%A0%87%E6%9D%A5%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%8B%9F%E7%82%B9%E5%87%BB%E5%8A%9F%E8%83%BD/
-        document
-          .elementsFromPoint(event.clientX, event.clientY)[0]
-          .dispatchEvent(
-            new MouseEvent("click", {
-              bubbles: true, // 事件冒泡
-              cancelable: true, // 默认事件
-              view: window,
-            })
-          );
-        canvas.style.pointerEvents = "auto";
-      }
-
+    document.addEventListener("click", (event) => {
+      let offsetX = event.clientX - this.app.view.offsetLeft,
+        offsetY = event.clientY - this.app.view.offsetTop;
       if (
-        this.app.view.offsetLeft < event.clientX &&
-        event.clientX < this.app.view.offsetLeft + this.app.view.width &&
-        this.app.view.offsetTop < event.clientY &&
-        event.clientY < this.app.view.offsetTop + this.app.view.height
+        0 < offsetX &&
+        offsetX < this.app.view.width &&
+        0 < offsetY &&
+        offsetY < this.app.view.height
       ) {
+        if (config.pierceThrough !== false) {
+          // 鼠标穿透, 先把 canvas 设为可穿透
+          canvas.style.pointerEvents = "none";
+          // 为该元素派发点击事件 https://www.blogwxb.cn/js%E4%B8%AD%E7%94%A8x%EF%BC%8Cy%E5%9D%90%E6%A0%87%E6%9D%A5%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%8B%9F%E7%82%B9%E5%87%BB%E5%8A%9F%E8%83%BD/
+          document
+            .elementsFromPoint(event.clientX, event.clientY)[0]
+            .dispatchEvent(
+              new MouseEvent("click", {
+                bubbles: true, // 事件冒泡
+                cancelable: true, // 默认事件
+                view: window,
+              })
+            );
+          canvas.style.pointerEvents = "auto";
+        }
+
         let po = this.model.toModelPosition(
             new PIXI.Point(this.model._pointerX, this.model._pointerY)
           ),
           hitAreas = this.model.internalModel.hitTest(po.x, po.y);
 
         if (Object.keys(this.model.internalModel.hitAreas).length == 0) {
-          if (this.isHit("TouchHead")) {
+          if (this.isHit("TouchHead", offsetX, offsetY)) {
             this.model.internalModel.motionManager.startMotion(
               "",
               motionIndex[0]
             );
-          } else if (this.isHit("TouchSpecial")) {
+          } else if (this.isHit("TouchSpecial", offsetX, offsetY)) {
             this.model.internalModel.motionManager.startMotion(
               "",
               motionIndex[1]
             );
-            // } else if (this.isHit("TouchBody")) {
-            //   this.model.internalModel.motionManager.startMotion(
-            //     "",
-            //     motionIndex[2]
-            //   );
+          } else if (this.isHit("TouchBody", offsetX, offsetY)) {
+            this.model.internalModel.motionManager.startMotion(
+              "",
+              motionIndex[2]
+            );
           } else {
             this.model.internalModel.motionManager.startRandomMotion("");
           }
@@ -204,18 +206,17 @@ class Live2dLoader {
     });
   }
 
-  isHit(id) {
+  isHit(id, offsetX, offsetY) {
     let bounds = this.model.internalModel.getDrawableBounds(id),
-      po = this.model.toModelPosition(
-        new PIXI.Point(this.model._pointerX, this.model._pointerY)
-      );
+      po = this.model.toModelPosition(new PIXI.Point(offsetX, offsetY));
+    console.log(bounds, po);
 
     let b =
       bounds.x < po.x &&
       po.x < bounds.x + bounds.width &&
       bounds.y < po.y &&
       po.y < bounds.y + bounds.height;
-    // if (b) console.log(id);
+    if (b) console.log(id);
     return b;
   }
 }
