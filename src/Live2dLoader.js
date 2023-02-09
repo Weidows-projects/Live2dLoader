@@ -3,16 +3,17 @@
  * @Author: Weidows
  * @LastEditors: Weidows
  * @Date: 2023-02-04 20:29:50
- * @LastEditTime: 2023-02-08 01:39:18
+ * @LastEditTime: 2023-02-10 00:46:44
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\src\Live2dLoader.js
  * @Description: live2d loader
  * @?: *********************************************************************
  */
 
+// Under two lines for dev to see functions, Comment before Commit.
 // import * as PIXI from "pixi.js";
 // import * as live2d from "pixi-live2d-display";
-// live2d = PIXI.live2d;
 
+live2d = PIXI.live2d;
 class Live2dLoader {
   constructor(models) {
     console.log(
@@ -100,7 +101,7 @@ class Live2dLoader {
       antialias: true, // 抗锯齿
       autoStart: true,
     });
-    this.model = await PIXI.live2d.Live2DModel.from(config.role);
+    this.model = await live2d.Live2DModel.from(config.role);
     this.app.stage.addChild(this.model);
     this.model.position.set(
       canvas.style.width * 0.5,
@@ -174,7 +175,8 @@ class Live2dLoader {
         }
 
         let po = this.model.toModelPosition(new PIXI.Point(offsetX, offsetY)),
-          hitAreas;
+          hitAreas,
+          ifRandom;
 
         if (Object.keys(this.model.internalModel.hitAreas).length == 0) {
           hitAreas = this.hitTest(po.x, po.y);
@@ -193,9 +195,7 @@ class Live2dLoader {
               "",
               motionIndex[2]
             );
-          } else {
-            this.model.internalModel.motionManager.startRandomMotion("");
-          }
+          } else ifRandom = true;
         } else {
           hitAreas = this.model.internalModel.hitTest(po.x, po.y);
           if (hitAreas.includes("head") || hitAreas.includes("Head")) {
@@ -204,8 +204,18 @@ class Live2dLoader {
           } else if (hitAreas.includes("body") || hitAreas.includes("Body")) {
             this.model.motion("tap_body");
             this.model.motion("Tap");
-          } else this.model.motion("Tap");
+          } else ifRandom = true;
         }
+
+        if (ifRandom === true) {
+          let keys = Object.keys(
+            this.model.internalModel.motionManager.motionGroups
+          );
+          this.model.internalModel.motionManager.startRandomMotion(
+            keys[Math.floor(Math.random() * keys.length)]
+          );
+        }
+
         console.log("Start motion: ", hitAreas.join(" / ") || "random");
       }
     });
