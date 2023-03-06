@@ -26,27 +26,34 @@ class Live2dLoader {
   }
 
   getLive2dIndex(models) {
-    let index = -1;
-
-    document.cookie.split(";").forEach((cookie) => {
-      // test=test
-      let cookieMap = cookie.split("=");
-      // live2d=1
-      // 筛选出 live2d-cookie, 并作越界判断
-      if (
-        cookieMap[0].trim() == "live2d" &&
-        cookieMap[1] >= 0 &&
-        cookieMap[1] < models.length
-      )
-        index = cookieMap[1];
-    });
-
-    if (index === -1) {
-      index = Math.floor(Math.random() * models.length);
-      document.cookie =
-        `live2d=${index}; expires=` +
-        new Date(Date.now() + 86400e3).toUTCString();
+    function setCookie(cname, cvalue, exseconds) {
+      const d = new Date();
+      d.setTime(d.getTime() + exseconds * 1000);
+      let expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
+
+    function getCookie(cname) {
+      let name = cname + "=";
+      let ca = document.cookie.split(";");
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == " ") {
+          c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length);
+        }
+      }
+      return "";
+    }
+
+    let cookie = getCookie("live2d");
+    let index =
+      cookie != "" && cookie >= 0 && cookie < models.length
+        ? cookie
+        : Math.floor(Math.random() * models.length);
+    if (cookie != index) setCookie("live2d", index, 24 * 60 * 60);
     return index;
   }
 
