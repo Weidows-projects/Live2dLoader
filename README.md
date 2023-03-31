@@ -8,7 +8,7 @@ katex: false
 comments: true
 aside: true
 date: 2022-03-26 12:46:57
-cover: https://www.helloimg.com/images/2022/03/26/RXQjJq.png
+cover: https://s1.imagehub.cc/images/2023/03/30/21f84753fafdfd83b9d9fc6c5d718e19.png
 top_img:
 ---
 
@@ -18,7 +18,7 @@ top_img:
 
 </h2>
 
-![](https://www.helloimg.com/images/2023/02/08/ooFTjM.png)
+![](https://s1.imagehub.cc/images/2023/03/30/750d6a680a3798ba8f1bba08479113cc.png)
 
 [⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/Live2dLoader/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/Live2dLoader) | [👀 示例页面](https://weidows-projects.github.io/Live2dLoader/) 欢迎提交 pr !
 
@@ -40,7 +40,7 @@ top_img:
 - [x] 2022.6.28 鼠标穿透/防遮挡 + 支持眼球跟踪 + 模型缩放 API
 - [x] 2023.2.7 拖动功能已修复
 
-<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
+<a>![分割线](https://s1.imagehub.cc/images/2023/03/30/a9702c938aecc012f41a054d9f568108.png)</a>
 
 ## 如何添加
 
@@ -81,7 +81,7 @@ top_img:
   });
   ```
 
-<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
+<a>![分割线](https://s1.imagehub.cc/images/2023/03/30/a9702c938aecc012f41a054d9f568108.png)</a>
 
 ## 比如 Hexo
 
@@ -102,7 +102,7 @@ inject:
     - <script>addEventListener("DOMContentLoaded",function(){let models=[{width:1280,height:768,left:"0px",bottom:"0px",role:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets/bisimai_2/bisimai_2.model3.json",background:"",opacity:1,mobile:false,draggable:true,},{width:800,height:600,right:"0px",bottom:"0px",role:"https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json",background:"",opacity:0.7,},];new Live2dLoader(models)})</script>
 ```
 
-<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
+<a>![分割线](https://s1.imagehub.cc/images/2023/03/30/a9702c938aecc012f41a054d9f568108.png)</a>
 
 ## 可选参数
 
@@ -119,7 +119,7 @@ inject:
 | draggable             | 可选[boolean] | false         | 是否允许拖动                                                                                                                                                                 |
 | pierceThrough         | 可选[boolean] | true          | 是否开启鼠标穿透                                                                                                                                                             |
 
-<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
+<a>![分割线](https://s1.imagehub.cc/images/2023/03/30/a9702c938aecc012f41a054d9f568108.png)</a>
 
 ## 调用结构
 
@@ -132,7 +132,7 @@ Live2dLoader(config)
       -> live2d.min.js            (cubism2, 旧版模型需要)
 ```
 
-<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
+<a>![分割线](https://s1.imagehub.cc/images/2023/03/30/a9702c938aecc012f41a054d9f568108.png)</a>
 
 ## Q-A
 
@@ -163,7 +163,7 @@ Live2dLoader(config)
 
 ### 怎么刷新
 
-![](https://www.helloimg.com/images/2022/05/23/ZRyZgz.png)
+![](https://s1.imagehub.cc/images/2023/03/31/939806eafac0bf8a586b32207af63154.png)
 
 ---
 
@@ -171,7 +171,7 @@ Live2dLoader(config)
 
 对于评论中提到的模型显示太小, 现在可以设置 `scale` 参数来解决了
 
-<a>![分割线](https://www.helloimg.com/images/2022/07/01/ZM0SoX.png)</a>
+<a>![分割线](https://s1.imagehub.cc/images/2023/03/30/a9702c938aecc012f41a054d9f568108.png)</a>
 
 ## 借物表
 
