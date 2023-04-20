@@ -8,7 +8,7 @@ katex: false
 comments: true
 aside: true
 date: 2022-03-26 12:46:57
-cover: https://s1.imagehub.cc/images/2023/03/30/21f84753fafdfd83b9d9fc6c5d718e19.png
+cover: https://www.helloimg.com/images/2022/03/26/RXQjJq.png
 top_img:
 ---
 
@@ -18,7 +18,7 @@ top_img:
 
 </h2>
 
-![](https://s1.imagehub.cc/images/2023/03/30/750d6a680a3798ba8f1bba08479113cc.png)
+![](https://www.helloimg.com/images/2023/02/08/ooFTjM.png)
 
 [⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/Live2dLoader/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/Live2dLoader) | [👀 示例页面](https://weidows-projects.github.io/Live2dLoader/) 欢迎提交 pr !
 
@@ -27,7 +27,7 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2023-02-08 00:23:33
+ * @LastEditTime: 2023-04-20 19:07:40
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\README.md
  * @Description:
  * @!: *********************************************************************
@@ -163,7 +163,7 @@ Live2dLoader(config)
 
 ### 怎么刷新
 
-![](https://s1.imagehub.cc/images/2023/03/31/939806eafac0bf8a586b32207af63154.png)
+![](https://www.helloimg.com/images/2022/05/23/ZRyZgz.png)
 
 ---
 
