@@ -27,8 +27,8 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2023-04-20 19:07:40
- * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\README.md
+ * @LastEditTime: 2023-05-03 13:24:45
+ * @FilePath: \Live2dLoader\README.md
  * @Description:
  * @!: *********************************************************************
 -->
@@ -182,3 +182,5 @@ Live2dLoader(config)
 <a name='cite_note-2' href='#cite_ref-2'>[2]</a>: live2dcubismcore_v2: https://cdn.jsdelivr.net/gh/dylanNew/live2d/webgl/Live2D/lib/live2d.min.js
 
 <a name='cite_note-3' href='#cite_ref-3'>[3]</a>: [再见 Z16，Hi Laffey！ || 陈 YF の博客(￣ ▽ ￣)&#34;](https://blog.cyfan.top/p/a12e0ab7.html)
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Weidows-projects/Live2dLoader&type=Date)](https://star-history.com/#Weidows-projects/Live2dLoader&Date)
