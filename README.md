@@ -10,6 +10,8 @@ aside: true
 date: 2022-03-26 12:46:57
 cover: https://www.helloimg.com/images/2022/03/26/RXQjJq.png
 top_img:
+created: 2023-04-20 19:06:08
+updated: 2023-12-06 18:07:13
 ---
 
 <h2>
@@ -27,8 +29,8 @@ top_img:
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2023-05-03 13:24:45
- * @FilePath: \Live2dLoader\README.md
+ * @LastEditTime: 2023-12-06 19:02:15
+ * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\README.md
  * @Description:
  * @!: *********************************************************************
 -->
