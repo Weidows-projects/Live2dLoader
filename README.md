@@ -8,7 +8,7 @@ katex: false
 comments: true
 aside: true
 date: 2022-03-26 12:46:57
-cover: https://www.helloimg.com/images/2022/03/26/RXQjJq.png
+cover: https://pan.weidows.tech/d/local/blog/RXQjJq.png
 top_img:
 ---
 
@@ -18,7 +18,7 @@ top_img:
 
 </h2>
 
-![](https://www.helloimg.com/images/2023/02/08/ooFTjM.png)
+![](https://pan.weidows.tech/d/local/blog/ooFTjM.png)
 
 [⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/Live2dLoader/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/Live2dLoader) | [👀 示例页面](https://weidows-projects.github.io/Live2dLoader/) 欢迎提交 pr !
 
@@ -163,7 +163,7 @@ Live2dLoader(config)
 
 ### 怎么刷新
 
-![](https://www.helloimg.com/images/2022/05/23/ZRyZgz.png)
+![](https://pan.weidows.tech/d/local/blog/ZRyZgz.png)
 
 ---
 
