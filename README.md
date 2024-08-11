@@ -8,10 +8,8 @@ katex: false
 comments: true
 aside: true
 date: 2022-03-26 12:46:57
-cover: https://www.helloimg.com/images/2022/03/26/RXQjJq.png
+cover: https://pan.weidows.tech/d/local/blog/RXQjJq.png
 top_img:
-created: 2023-04-20 19:06:08
-updated: 2023-12-06 18:07:13
 ---
 
 <h2>
@@ -20,16 +18,16 @@ updated: 2023-12-06 18:07:13
 
 </h2>
 
-![](https://www.helloimg.com/images/2023/02/08/ooFTjM.png)
+![](https://pan.weidows.tech/d/local/blog/ooFTjM.png)
 
-[⏩ 文章地址/示例博客](https://weidows.github.io/post/Web/JavaScript/Live2dLoader/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/Live2dLoader) | [👀 示例页面](https://weidows-projects.github.io/Live2dLoader/) 欢迎提交 pr !
+[⏩ 文章地址/示例博客](https://weidows.github.io/post/lang/JavaScript/Live2dLoader/README) | [✔️ 仓库地址](https://github.com/Weidows-projects/Live2dLoader) | [👀 示例页面](https://weidows-projects.github.io/Live2dLoader/) 欢迎提交 pr !
 
 <!--
  * @?: live2d************************************************
  * @Author: JavaScripteidows
  * @Date: 2022-03-20 22:26:55
  * @LastEditors: Weidows
- * @LastEditTime: 2023-12-06 19:02:15
+ * @LastEditTime: 2024-08-07 13:24:08
  * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\README.md
  * @Description:
  * @!: *********************************************************************
@@ -42,7 +40,7 @@ updated: 2023-12-06 18:07:13
 - [x] 2022.6.28 鼠标穿透/防遮挡 + 支持眼球跟踪 + 模型缩放 API
 - [x] 2023.2.7 拖动功能已修复
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 ## 如何添加
 
@@ -83,7 +81,7 @@ updated: 2023-12-06 18:07:13
   });
   ```
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 ## 比如 Hexo
 
@@ -104,7 +102,7 @@ inject:
     - <script>addEventListener("DOMContentLoaded",function(){let models=[{width:1280,height:768,left:"0px",bottom:"0px",role:"https://cdn.jsdelivr.net/gh/alg-wiki/AzurLaneL2DViewer@gh-pages/assets/bisimai_2/bisimai_2.model3.json",background:"",opacity:1,mobile:false,draggable:true,},{width:800,height:600,right:"0px",bottom:"0px",role:"https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display/test/assets/shizuku/shizuku.model.json",background:"",opacity:0.7,},];new Live2dLoader(models)})</script>
 ```
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 ## 可选参数
 
@@ -121,7 +119,7 @@ inject:
 | draggable             | 可选[boolean] | false         | 是否允许拖动                                                                                                                                                                 |
 | pierceThrough         | 可选[boolean] | true          | 是否开启鼠标穿透                                                                                                                                                             |
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 ## 调用结构
 
@@ -134,7 +132,7 @@ Live2dLoader(config)
       -> live2d.min.js            (cubism2, 旧版模型需要)
 ```
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 ## Q-A
 
@@ -165,7 +163,7 @@ Live2dLoader(config)
 
 ### 怎么刷新
 
-![](https://www.helloimg.com/images/2022/05/23/ZRyZgz.png)
+![](https://pan.weidows.tech/d/local/blog/ZRyZgz.png)
 
 ---
 
@@ -173,7 +171,7 @@ Live2dLoader(config)
 
 对于评论中提到的模型显示太小, 现在可以设置 `scale` 参数来解决了
 
-<a>![分割线](https://cdn.jsdelivr.net/gh/Weidows/Weidows/image/divider.png)</a>
+<a>![分割线](https://pan.weidows.tech/d/local/img/divider.png)</a>
 
 ## 借物表
 
