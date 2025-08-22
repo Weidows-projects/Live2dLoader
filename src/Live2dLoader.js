@@ -66,6 +66,11 @@ class Live2dLoader {
     function test(needle) {
       return needle.test(UA);
     }
+
+    var IsDesktop = /x86_64/.test(NA.platform);
+    if (IsDesktop)
+      return false;
+
     var IsAndroid = test(/android|htc/) || /linux/i.test(NA.platform + "");
     var IsIPhone = !IsAndroid && test(/ipod|iphone/);
     var IsWinPhone = test(/windows phone/);
