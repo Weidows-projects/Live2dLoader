@@ -3,8 +3,8 @@
  * @Author: Weidows
  * @LastEditors: Weidows
  * @Date: 2023-02-04 20:29:50
- * @LastEditTime: 2023-02-10 00:46:44
- * @FilePath: \Blog-private\source\_posts\Web\JavaScript\Live2dLoader\src\Live2dLoader.js
+ * @LastEditTime: 2026-01-29 18:48:16
+ * @FilePath: \Live2dLoader\src\Live2dLoader.js
  * @Description: live2d loader
  * @?: *********************************************************************
  */
@@ -18,7 +18,7 @@ class Live2dLoader {
   constructor(models) {
     console.log(
       "%cLive2D using: https://github.com/Weidows-projects/Live2dLoader",
-      "color: #6aff00;background: #0c222e;"
+      "color: #6aff00;background: #0c222e;",
     );
     let config = models[this.getLive2dIndex(models)];
     if (!config.mobile && this.isMobile()) return;
@@ -57,31 +57,43 @@ class Live2dLoader {
     return index;
   }
 
-  isMobile() {
-    var WIN = window;
-    var LOC = WIN["location"];
-    var NA = WIN.navigator;
-    var UA = NA.userAgent.toLowerCase();
+  isMobile(opts = {}) {
+    const win = opts.window || (typeof window !== "undefined" ? window : null);
+    if (!win) return false;
 
-    function test(needle) {
-      return needle.test(UA);
-    }
-    var IsAndroid = test(/android|htc/) || /linux/i.test(NA.platform + "");
-    var IsIPhone = !IsAndroid && test(/ipod|iphone/);
-    var IsWinPhone = test(/windows phone/);
+    const nav = win.navigator || {};
+    const ua = String(opts.ua || nav.userAgent || "").toLowerCase();
+    const platform = String(nav.platform || "").toLowerCase();
 
-    var device = {
-      IsAndroid: IsAndroid,
-      IsIPhone: IsIPhone,
-      IsWinPhone: IsWinPhone,
+    const isAndroid = /android/.test(ua);
+    const isWindowsPhone = /windows phone/.test(ua);
+
+    // iPhone / iPod
+    const isIPhone = /iphone|ipod/.test(ua);
+
+    // iPad：iPadOS 13+ 可能伪装成 Mac，靠触摸点数兜底
+    const isIPad =
+      /ipad/.test(ua) ||
+      (platform === "macintel" && (nav.maxTouchPoints || 0) > 1);
+
+    const device = {
+      IsAndroid: isAndroid,
+      IsIPhone: isIPhone,
+      IsIPad: isIPad,
+      IsWinPhone: isWindowsPhone,
     };
-    var documentElement = WIN.document.documentElement;
-    for (var i in device) {
-      if (device[i]) {
-        documentElement.className += " " + i.replace("Is", "").toLowerCase();
-      }
+
+    const docEl = win.document && win.document.documentElement;
+    if (docEl && docEl.classList) {
+      if (device.IsAndroid) docEl.classList.add("android");
+      if (device.IsIPhone) docEl.classList.add("iphone");
+      if (device.IsIPad) docEl.classList.add("ipad");
+      if (device.IsWinPhone) docEl.classList.add("winphone");
     }
-    return device.IsAndroid || device.IsIPhone || device.IsWinPhone;
+
+    return (
+      device.IsAndroid || device.IsIPhone || device.IsIPad || device.IsWinPhone
+    );
   }
 
   async load(config) {
@@ -112,7 +124,7 @@ class Live2dLoader {
     this.app.stage.addChild(this.model);
     this.model.position.set(
       canvas.style.width * 0.5,
-      canvas.style.height * 0.5
+      canvas.style.height * 0.5,
     );
     this.model.scale.set(config.scale || 0.1);
     if (config.draggable === true) this.draggable(this.model);
@@ -176,7 +188,7 @@ class Live2dLoader {
                 bubbles: true, // 事件冒泡
                 cancelable: true, // 默认事件
                 view: window,
-              })
+              }),
             );
           canvas.style.pointerEvents = "auto";
         }
@@ -190,17 +202,17 @@ class Live2dLoader {
           if (hitAreas.includes("TouchHead")) {
             this.model.internalModel.motionManager.startMotion(
               "",
-              motionIndex[0]
+              motionIndex[0],
             );
           } else if (hitAreas.includes("TouchSpecial")) {
             this.model.internalModel.motionManager.startMotion(
               "",
-              motionIndex[1]
+              motionIndex[1],
             );
           } else if (hitAreas.includes("TouchBody")) {
             this.model.internalModel.motionManager.startMotion(
               "",
-              motionIndex[2]
+              motionIndex[2],
             );
           } else ifRandom = true;
         } else {
@@ -216,10 +228,10 @@ class Live2dLoader {
 
         if (ifRandom === true) {
           let keys = Object.keys(
-            this.model.internalModel.motionManager.motionGroups
+            this.model.internalModel.motionManager.motionGroups,
           );
           this.model.internalModel.motionManager.startRandomMotion(
-            keys[Math.floor(Math.random() * keys.length)]
+            keys[Math.floor(Math.random() * keys.length)],
           );
         }
 
